@@ -10,8 +10,7 @@ Source0:	http://launchpad.net/libindicator/0.5/%{version}/+download/%{name}-%{ve
 BuildRequires:	dbus-glib-devel
 BuildRequires:	gtk+2-devel
 BuildRequires:	gtk+3-devel
-BuildRequires:	gtk-doc
-BuildRequires:	libtool
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
