@@ -7,10 +7,10 @@ Group:		Libraries
 URL:		https://launchpad.net/libindicator
 Source0:	http://launchpad.net/libindicator/0.5/%{version}/+download/%{name}-%{version}.tar.gz
 # Source0-md5:	f256d3dccfd2612fb31e19ec42ad1824
-BuildRequires:	dbus-glib-devel
 BuildRequires:	gtk+2-devel
 BuildRequires:	gtk+3-devel
 BuildRequires:	pkgconfig
+BuildRequires:	which
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
