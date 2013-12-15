@@ -1,12 +1,12 @@
 Summary:	Shared functions for Ayatana indicators
 Name:		libindicator
-Version:	0.4.94
+Version:	12.10.1
 Release:	1
 License:	GPL v3
 Group:		Libraries
 URL:		https://launchpad.net/libindicator
-Source0:	http://launchpad.net/libindicator/0.5/%{version}/+download/%{name}-%{version}.tar.gz
-# Source0-md5:	f256d3dccfd2612fb31e19ec42ad1824
+Source0:	http://launchpad.net/libindicator/12.10/%{version}/+download/%{name}-%{version}.tar.gz
+# Source0-md5:	5fd4d6bab339fc9611078b64c44a85a8
 BuildRequires:	gtk+2-devel
 BuildRequires:	gtk+3-devel
 BuildRequires:	pkgconfig
@@ -46,8 +46,12 @@ developing applications that use %{name}-gtk3.
 
 %prep
 %setup -q
+%{__sed} -i -e 's|-Werror||g' */Makefile.am
 
 %build
+%{__aclocal}
+%{__automake}
+%{__autoconf}
 # we build it twice, once against GTK+ 3 and once against GTK+ 2, so
 # both GTK+ 2 and GTK+ 3 apps can use it; the GTK+ 3 build is
 # libindicator-gtk3. When we have no need for the GTK+ 2 build any more
