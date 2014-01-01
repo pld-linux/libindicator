@@ -72,11 +72,11 @@ Requires:	gtk+3-devel >= 3.0
 
 %description gtk3-devel
 This package contains the header files for developing applications
-that use libindicator (GTK+ 2.x version).
+that use libindicator (GTK+ 3.x version).
 
 %description gtk3-devel -l pl.UTF-8
 Ten pakiet zawiera pliki nagłówkowe do tworzenia aplikacji
-wykorzystujących bibliotekę libindicator (w wersji dla GTK+ 2.x).
+wykorzystujących bibliotekę libindicator (w wersji dla GTK+ 3.x).
 
 %prep
 %setup -q
