@@ -136,7 +136,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS
 %attr(755,root,root) %{_libdir}/libindicator.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libindicator.so.7
-%attr(755,root,root) %{_libdir}/indicator-loader
+%attr(755,root,root) %{_libexecdir}/indicator-loader
 
 %files devel
 %defattr(644,root,root,755)
@@ -152,7 +152,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS
 %attr(755,root,root) %{_libdir}/libindicator3.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libindicator3.so.7
-%attr(755,root,root) %{_libdir}/indicator-loader3
+%attr(755,root,root) %{_libexecdir}/indicator-loader3
 
 %files gtk3-devel
 %defattr(644,root,root,755)
