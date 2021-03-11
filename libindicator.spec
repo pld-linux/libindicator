@@ -2,7 +2,7 @@ Summary:	Shared functions for Ayatana indicators (GTK+ 2.x version)
 Summary(pl.UTF-8):	Funkcje współdzielone dla wskaźników Ayatana (wersja dla GTK+ 2.x)
 Name:		libindicator
 Version:	12.10.1
-Release:	2
+Release:	3
 License:	GPL v3
 Group:		Libraries
 #Source0Download: https://launchpad.net/libindicator/+download
@@ -120,6 +120,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/lib*.la
 
+# dirs for library users, see .pc files for paths
+install -d $RPM_BUILD_ROOT%{_libdir}/{indicators,indicators3}/7
+install -d $RPM_BUILD_ROOT%{_datadir}/libindicator/icons
+
 # this dummy indicator is fairly useless, it's not shipped in Ubuntu
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libdummy-indicator*.so
 
@@ -128,6 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
+
 %post	gtk3 -p /sbin/ldconfig
 %postun	gtk3 -p /sbin/ldconfig
 
@@ -137,15 +142,18 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libindicator.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libindicator.so.7
 %attr(755,root,root) %{_libexecdir}/indicator-loader
+%dir %{_libdir}/indicators
+%dir %{_libdir}/indicators/7
+%dir %{_datadir}/libindicator
+%dir %{_datadir}/libindicator/icons
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libindicator.so
 %{_includedir}/libindicator-0.4
 %{_pkgconfigdir}/indicator-0.4.pc
-# Contains 80indicator-debugging
 # This is marked as 'for development use only'
-%{_datadir}/libindicator
+%{_datadir}/libindicator/80indicator-debugging
 
 %files gtk3
 %defattr(644,root,root,755)
@@ -153,6 +161,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libindicator3.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libindicator3.so.7
 %attr(755,root,root) %{_libexecdir}/indicator-loader3
+%dir %{_libdir}/indicators3
+%dir %{_libdir}/indicators3/7
+%dir %{_datadir}/libindicator
+%dir %{_datadir}/libindicator/icons
 
 %files gtk3-devel
 %defattr(644,root,root,755)
