@@ -80,7 +80,7 @@ wykorzystujących bibliotekę libindicator (w wersji dla GTK+ 3.x).
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %{__sed} -i -e 's|-Werror||g' */Makefile.am
 
